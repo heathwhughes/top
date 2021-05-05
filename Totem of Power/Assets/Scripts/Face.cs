@@ -9,4 +9,5 @@ public class Face : MonoBehaviour
     {
         other.transform.parent = transform;
     }
+
 }
