@@ -5,50 +5,27 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    // This will make it move 90 degrees per second
-    [SerializeField] float rotateSpeed = 5f;
-    bool rotateLeft = false;
-    bool rotateRight = false;
-    float rotationAngle;
-    Transform Quad;
+
+    Block block;
 
     private void Start()
     {
-        Quad = gameObject.transform.parent.Find("Quads");
-        rotationAngle = Quad.eulerAngles.y;
-    }
+        block = gameObject.transform.parent.Find("Block").GetComponent<Block>();
 
-    private void Update()
-    {
-        if (rotateLeft || rotateRight)
-        {
-            RotateQuads();    
-        }
     }
 
     private void OnMouseDown()
     {
         if (gameObject.name == "Left Arrow")
         {
-            rotateLeft = true;
-            rotateRight = false;
-            rotationAngle += 90;
-            print("rotationAngle: " + rotationAngle);
+            block.SetRotationDirection(true);
         }
         else
         {
-            rotateRight = true;
-            rotateLeft = false;
-            rotationAngle -= 90;
-            print("rotationAngle: " + rotationAngle);
+            block.SetRotationDirection(false);
         }
+ 
     }
-
-    private void RotateQuads()
-    {
-        Quad.transform.rotation = Quaternion.Slerp(
-            Quaternion.Euler(Quad.transform.eulerAngles),
-            Quaternion.Euler(0f, rotationAngle, 0f),
-            Time.deltaTime * rotateSpeed);
-    }
+    
+        
 }
