@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeTest : MonoBehaviour
+public class SwipeHandler : MonoBehaviour
 {
     [SerializeField] public float maxSwipeTime = .85f;
     [SerializeField] public float minSwipeTistance = 100f;
@@ -28,8 +28,10 @@ public class SwipeTest : MonoBehaviour
         TestForSwipe();
     }
 
-    void TestForSwipe()
+    public void TestForSwipe()
     {
+        // add swipable object bool to be defaulted to false and set to true in other scripts
+        // add a public method to get and set this bool
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -64,7 +66,8 @@ public class SwipeTest : MonoBehaviour
         }
     }
 
-    void SwipeControl()
+    // update this method to return whether it's a left or right swipe so other scripts that call it can act on it
+    public void SwipeControl()
     {
         Vector2 distance = endSwipePosition - startSwipePosition;
         float xDistanceAbs = Mathf.Abs(distance.x);

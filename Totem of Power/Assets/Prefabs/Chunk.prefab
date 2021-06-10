@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846916330651868473}
   - component: {fileID: 7939732393018560849}
+  - component: {fileID: 5953774195743085980}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -47,6 +48,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4020c45e5aed40379a461718f7bfa7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  swipeHandler: {fileID: 0}
+--- !u!65 &5953774195743085980
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687406662778191125}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4102951, y: 1, z: 1.4473326}
+  m_Center: {x: -0.019323468, y: 0, z: -0.055223968}
 --- !u!1 &3771522557152155856
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f6c4c1531b246e7a86e1718317f991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 5
 --- !u!1 &8064332544103123127
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,4 +776,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f6c4c1531b246e7a86e1718317f991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 5

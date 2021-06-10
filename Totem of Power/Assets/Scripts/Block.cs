@@ -8,14 +8,23 @@ public class Block : MonoBehaviour
     [SerializeField] float rotationSpeed = 5f;
     float rotationAngle;
 
+    public SwipeHandler swipeHandler;
+
     private void Start()
     {
         rotationAngle = transform.eulerAngles.y;
+        swipeHandler = FindObjectOfType<SwipeHandler>();
     }
 
     private void Update()
     {
         RotateBlock();
+
+    }
+
+    public void OnMouseDown()
+    {
+        swipeHandler.TestForSwipe();
     }
 
     public void SetRotationDirection(bool isLeft)
