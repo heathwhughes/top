@@ -20,11 +20,19 @@ public class Block : MonoBehaviour
     {
         RotateBlock();
 
+        if (swipeHandler.currentSwipeDirection == "left")
+		{
+            SetRotationDirection(true);
+		}
+        else if (swipeHandler.currentSwipeDirection == "right")
+		{
+            SetRotationDirection(false);
+        }
     }
 
     public void OnMouseDown()
     {
-        swipeHandler.TestForSwipe();
+        swipeHandler.currentSwipeableObject = true;
     }
 
     public void SetRotationDirection(bool isLeft)

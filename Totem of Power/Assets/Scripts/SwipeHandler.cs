@@ -7,6 +7,8 @@ public class SwipeHandler : MonoBehaviour
 {
     [SerializeField] public float maxSwipeTime = .85f;
     [SerializeField] public float minSwipeTistance = 100f;
+    public bool currentSwipeableObject { get; set; }
+    public string currentSwipeDirection { get; set; }
 
     private float swipeStartTime;
     private float swipeEndTime;
@@ -19,7 +21,8 @@ public class SwipeHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.currentSwipeableObject = false;
+        print(currentSwipeableObject);
     }
 
     // Update is called once per frame
@@ -32,7 +35,8 @@ public class SwipeHandler : MonoBehaviour
     {
         // add swipable object bool to be defaulted to false and set to true in other scripts
         // add a public method to get and set this bool
-        if (Input.touchCount > 0)
+
+        if (Input.touchCount > 0 && this.currentSwipeableObject)
         {
             Touch touch = Input.GetTouch(0);
             
@@ -57,6 +61,7 @@ public class SwipeHandler : MonoBehaviour
                 {
                     print("Valid swipe");
                     SwipeControl();
+                    this.currentSwipeableObject = false;
                 }
                 else
                 {
@@ -77,17 +82,20 @@ public class SwipeHandler : MonoBehaviour
         {
             if (distance.x > 0)
             {
-                print("horizontal swipe right");
+                this.currentSwipeDirection = "right";
+                print("current swipe direction: " + currentSwipeDirection);
             }
             else
             {
-                print("horizontal swipe left");
+                this.currentSwipeDirection = "left";
+                print("current swipe direction: " + currentSwipeDirection);
             }
             
         }
         else if (yDistanceAbs > xDistanceAbs)
         {
-            print("vertical swipe");
+            this.currentSwipeDirection = "up/down";
+            print("current swipe direction: " + currentSwipeDirection);
         }
     }
 
