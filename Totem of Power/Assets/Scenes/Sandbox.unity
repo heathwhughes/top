@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk
       objectReference: {fileID: 0}
+    - target: {fileID: 7939732393018560849, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
+      propertyPath: swipeHandler
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3743450251373841889, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
@@ -793,6 +797,10 @@ PrefabInstance:
     - target: {fileID: 3771522558562131417, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_Name
       value: Chunk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939732393018560849, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
+      propertyPath: swipeHandler
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3743450251373841889, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
