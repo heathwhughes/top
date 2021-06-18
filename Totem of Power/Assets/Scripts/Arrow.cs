@@ -18,11 +18,11 @@ public class Arrow : MonoBehaviour
     {
         if (gameObject.name == "Left Arrow")
         {
-            block.SetRotationDirection(true);
+            block.HandleRotation(true);
         }
         else
         {
-            block.SetRotationDirection(false);
+            block.HandleRotation(false);
         }
  
     }

@@ -44,6 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Attacker
+  - name: OutOfViewEnemy
+    uniqueID: 2752169027
+    locked: 0
+  - name: Totem
+    uniqueID: 839328245
+    locked: 0
+  - name: InViewEnemy
     uniqueID: 311621537
     locked: 0
