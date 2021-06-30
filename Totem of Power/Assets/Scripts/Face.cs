@@ -51,6 +51,13 @@ public class Face : MonoBehaviour
                 Debug.LogError("Invalid Face object name.");
             }
         }
+
+        print("Face: " + gameObject.name + "...");
+        print("IsInView: " + IsInView);
+        print("IsVisibleLeft: " + IsVisibleLeft);
+        print("IsVisibleRight: " + IsVisibleRight);
+        print("IsHiddenLeft: " + IsHiddenLeft);
+        print("IsHiddenRight: " + IsHiddenRight);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,21 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 
+    public bool IsRotating { get; set; }
     [SerializeField] float rotationSpeed = 5f;
     float rotationAngle;
 
     private SwipeHandler swipeHandler;
     private Face[] faces;
+    private float floatVariationTolerance = .000001f;
 
     private void Start()
     {
         rotationAngle = transform.eulerAngles.y;
+        print("starting rotationAngle: " + rotationAngle);
         swipeHandler = GetComponent<SwipeHandler>();
-        faces = GetComponentsInChildren<Face>();       
+        faces = GetComponentsInChildren<Face>();
+        IsRotating = false;
     }
 
     private void Update()
@@ -32,6 +37,22 @@ public class Block : MonoBehaviour
             this.HandleRotation(false);
             swipeHandler.currentSwipeDirection = "none";
         }
+
+        float allowedAngleDifference = Mathf.Abs(transform.eulerAngles.y * floatVariationTolerance);
+        float roundedAngle = (float)Math.Round(transform.eulerAngles.y * 10000f) / 10000f;
+        float actualDifference = Mathf.Abs(roundedAngle) % 45;
+        print("actual difference: " + actualDifference + " . Allowed difference: " + allowedAngleDifference);
+        if (actualDifference <= allowedAngleDifference)
+        {
+            IsRotating = false;
+        }
+        else
+        {
+            IsRotating = true;
+        }
+        print("IsRotating: " + IsRotating + ". " + "transform.eulerAngles.y = " + transform.eulerAngles.y + " and rotationAngle = " + rotationAngle);
+
+        
     }
 
     public void OnMouseDown()
