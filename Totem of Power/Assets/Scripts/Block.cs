@@ -12,12 +12,12 @@ public class Block : MonoBehaviour
 
     private SwipeHandler swipeHandler;
     private Face[] faces;
-    private float floatVariationTolerance = .000001f;
+    private readonly float floatVariationTolerance = .000001f;
 
     private void Start()
     {
         rotationAngle = transform.eulerAngles.y;
-        print("starting rotationAngle: " + rotationAngle);
+        // print("starting rotationAngle: " + rotationAngle);
         swipeHandler = GetComponent<SwipeHandler>();
         faces = GetComponentsInChildren<Face>();
         IsRotating = false;
@@ -41,7 +41,7 @@ public class Block : MonoBehaviour
         float allowedAngleDifference = Mathf.Abs(transform.eulerAngles.y * floatVariationTolerance);
         float roundedAngle = (float)Math.Round(transform.eulerAngles.y * 10000f) / 10000f;
         float actualDifference = Mathf.Abs(roundedAngle) % 45;
-        print("actual difference: " + actualDifference + " . Allowed difference: " + allowedAngleDifference);
+        // print("actual difference: " + actualDifference + " . Allowed difference: " + allowedAngleDifference);
         if (actualDifference <= allowedAngleDifference)
         {
             IsRotating = false;
@@ -50,7 +50,7 @@ public class Block : MonoBehaviour
         {
             IsRotating = true;
         }
-        print("IsRotating: " + IsRotating + ". " + "transform.eulerAngles.y = " + transform.eulerAngles.y + " and rotationAngle = " + rotationAngle);
+        // print("IsRotating: " + IsRotating + ". " + "transform.eulerAngles.y = " + transform.eulerAngles.y + " and rotationAngle = " + rotationAngle);
 
         
     }
