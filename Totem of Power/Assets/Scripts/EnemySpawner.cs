@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -33,10 +34,11 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn(Enemy myEnemy)
     {
         Enemy newEnemy = Instantiate
-                        (myEnemy, transform.position, transform.rotation)
-                        as Enemy;
+            (myEnemy, transform.position, transform.rotation)
+            as Enemy;
+        Transform enemyChildObject = newEnemy.transform.GetChild(0);
         newEnemy.transform.parent = transform.parent;
+        enemyChildObject.SetParent(newEnemy.transform, true);
         newEnemy.transform.localScale = new Vector3(1, 1, 1);
-
     }
 }

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = .5f;
     public const string IN_VIEW_LAYER_NAME = "InViewEnemy";
     public const string OUT_OF_VIEW_LAYER_NAME = "Totem";
+    public bool IsMoving { get; set; }
     public Face parentFace;
     private SpriteRenderer spriteRenderer;
     public Block block;
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
         parentFace = GetComponentInParent<Face>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         block = GetComponentInParent<Block>();
+        IsMoving = true;
         
         if (parentFace.IsInView)
         {
@@ -47,7 +49,16 @@ public class Enemy : MonoBehaviour
             block = GetComponentInParent<Block>();
         }
 
-        if (!block.IsRotating)
+        if (block.IsRotating)
+        {
+            IsMoving = false;
+        }
+        else
+        {
+            IsMoving = true;
+        }
+
+        if (IsMoving)
         {
             Move();
         }

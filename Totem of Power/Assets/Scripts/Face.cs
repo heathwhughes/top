@@ -63,8 +63,28 @@ public class Face : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // become the new parent object for enemies when they touch the collider
-        other.transform.parent = transform;
+        // become the new parent object for enemies when they touch the collider while preserving the enemies' children
+        if(other.transform.childCount > 0)
+        {
+            //print("num of children: " + other.transform.childCount);
+            Transform otherChildObject = other.transform.GetChild(0);
+            print("other's child: " + otherChildObject);
+            other.transform.parent = transform;
+            otherChildObject.parent = other.transform;
+        }
+        else
+        {
+            other.transform.parent = transform;
+        }
+        
+        
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "Head")
+        {
+            print("A head collider has exited a face collider");
+        }
+    }
 }
