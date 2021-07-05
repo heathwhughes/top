@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
             (myEnemy, transform.position, transform.rotation)
             as Enemy;
         Transform enemyChildObject = newEnemy.transform.GetChild(0);
+        // Set the Face as the enemy's parent
         newEnemy.transform.parent = transform.parent;
         enemyChildObject.SetParent(newEnemy.transform, true);
         newEnemy.transform.localScale = new Vector3(1, 1, 1);

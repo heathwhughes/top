@@ -92,6 +92,10 @@ public class Block : MonoBehaviour
                     face.IsInView = false;
                     face.IsVisibleLeft = false;
                     face.IsHiddenLeft = true;
+                    print("Face that should be hidden left: " + face);
+                    print("IsInView that should be false: " + face.IsInView);
+                    print("IsVisibleLeft that should be false: " + face.IsVisibleLeft);
+                    print("IsHiddenLeft that should be true: " + face.IsHiddenLeft);
                 }
                 else if (!face.IsVisibleLeft && face.IsVisibleRight && isLeftRotation)
                 {

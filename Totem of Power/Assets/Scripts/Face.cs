@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Face : MonoBehaviour
 {
-    public bool IsInView { get; set; }
-    public bool IsVisibleLeft { get; set; }
-    public bool IsVisibleRight { get; set; }
-    public bool IsHiddenLeft { get; set; }
-    public bool IsHiddenRight { get; set; }
+    [SerializeField] public bool IsInView { get; set; }
+    [SerializeField] public bool IsVisibleLeft { get; set; }
+    [SerializeField] public bool IsVisibleRight { get; set; }
+    [SerializeField] public bool IsHiddenLeft { get; set; }
+    [SerializeField] public bool IsHiddenRight { get; set; }
 
     private void Start()
     {
@@ -51,40 +51,26 @@ public class Face : MonoBehaviour
                 Debug.LogError("Invalid Face object name.");
             }
         }
-        /*
-        print("Face: " + gameObject.name + "...");
-        print("IsInView: " + IsInView);
-        print("IsVisibleLeft: " + IsVisibleLeft);
-        print("IsVisibleRight: " + IsVisibleRight);
-        print("IsHiddenLeft: " + IsHiddenLeft);
-        print("IsHiddenRight: " + IsHiddenRight);
-        */
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // become the new parent object for enemies when they touch the collider while preserving the enemies' children
-        if(other.transform.childCount > 0)
+
+        if (transform.parent.parent.name != "Base Chunk")
         {
-            //print("num of children: " + other.transform.childCount);
-            Transform otherChildObject = other.transform.GetChild(0);
-            print("other's child: " + otherChildObject);
-            other.transform.parent = transform;
-            otherChildObject.parent = other.transform;
+            // Assuming that it's the Head's collider, set it's parent's parent to the Face
+            other.transform.parent.parent = transform;
+            other.GetComponentInParent<Enemy>().parentFace = gameObject.GetComponent<Face>();
         }
-        else
-        {
-            other.transform.parent = transform;
-        }
-        
-        
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "Head")
         {
-            print("A head collider has exited a face collider");
+            // print("A head collider has exited a face collider");
         }
     }
 }

@@ -27,14 +27,13 @@ public class Enemy : MonoBehaviour
         {
             spriteRenderer.sortingLayerName = OUT_OF_VIEW_LAYER_NAME;
         }
-
                 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         if (parentFace.IsInView)
         {
             spriteRenderer.sortingLayerName = IN_VIEW_LAYER_NAME;
