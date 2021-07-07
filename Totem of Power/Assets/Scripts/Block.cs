@@ -9,10 +9,11 @@ public class Block : MonoBehaviour
     public bool IsRotating { get; set; }
     [SerializeField] float rotationSpeed = 5f;
     float rotationAngle;
-
+    
     private SwipeHandler swipeHandler;
     private Face[] faces;
     private readonly float floatVariationTolerance = .000001f;
+    public List<Enemy> enemiesLeaving = new List<Enemy>();
 
     private void Start()
     {
@@ -49,7 +50,14 @@ public class Block : MonoBehaviour
         {
             IsRotating = true;
         }
+
+        UpdateEnemiesAtBoundaryList();
         
+    }
+
+    public void AddToLeavingList(Enemy enemy)
+    {
+        enemiesLeaving.Add(enemy);
     }
 
     public void OnMouseDown()
@@ -68,8 +76,20 @@ public class Block : MonoBehaviour
         {
             rotationAngle -= 90;
             HandleSortingLayerForFaces(false);
-        }  
+        }
     }
+
+    private void UpdateEnemiesAtBoundaryList()
+    {
+        if (IsRotating)
+        {
+            // get list of enemies entering or leaving
+        }
+        else
+        {
+            // clear list of enemies entering or leaving
+        }
+    } 
 
     private void RotateBlock()
     {
@@ -92,10 +112,6 @@ public class Block : MonoBehaviour
                     face.IsInView = false;
                     face.IsVisibleLeft = false;
                     face.IsHiddenLeft = true;
-                    print("Face that should be hidden left: " + face);
-                    print("IsInView that should be false: " + face.IsInView);
-                    print("IsVisibleLeft that should be false: " + face.IsVisibleLeft);
-                    print("IsHiddenLeft that should be true: " + face.IsHiddenLeft);
                 }
                 else if (!face.IsVisibleLeft && face.IsVisibleRight && isLeftRotation)
                 {
