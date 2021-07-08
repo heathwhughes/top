@@ -9,9 +9,12 @@ public class Face : MonoBehaviour
     [SerializeField] public bool IsVisibleRight { get; set; }
     [SerializeField] public bool IsHiddenLeft { get; set; }
     [SerializeField] public bool IsHiddenRight { get; set; }
+    Block block;
 
     private void Start()
     {
+        block = GetComponentInParent<Block>();
+
         // Set initial values for where each face in in the view for sorting layers
         if (gameObject.name == "Face 1" || gameObject.name == "Face 2")
         {
@@ -70,7 +73,8 @@ public class Face : MonoBehaviour
     {
         if (other.name == "Head")
         {
-            // print("A head collider has exited a face collider");
+            block.RemoveFromLeavingList(other.GetComponentInParent<Enemy>());
         }
     }
+
 }

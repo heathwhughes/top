@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         {
             block = GetComponentInParent<Block>();
         }
-
+        /*
         if (block.IsRotating)
         {
             IsMoving = false;
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         else
         {
             IsMoving = true;
-        }
+        } */
 
         if (IsMoving)
         {

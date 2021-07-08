@@ -15,7 +15,6 @@ public class Leaving : MonoBehaviour
     {
         // add other to the block's leaving list. They should be removed when they get a new parent
         block.AddToLeavingList(other.GetComponentInParent<Enemy>());
-        print("enemies leaving block - " + block + " : " + block.enemiesLeaving);
     }
 
 }

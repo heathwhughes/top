@@ -9,24 +9,31 @@ public class Block : MonoBehaviour
     public bool IsRotating { get; set; }
     [SerializeField] float rotationSpeed = 5f;
     float rotationAngle;
-    
     private SwipeHandler swipeHandler;
     private Face[] faces;
     private readonly float floatVariationTolerance = .000001f;
-    public List<Enemy> enemiesLeaving = new List<Enemy>();
+    [SerializeField] public List<Enemy> enemiesLeaving = new List<Enemy>();
+    [SerializeField] private GameObject chunkBelow;
+    GameState gameState;
 
     private void Start()
     {
+        gameState = FindObjectOfType<GameState>();
         rotationAngle = transform.eulerAngles.y;
         swipeHandler = GetComponent<SwipeHandler>();
         faces = GetComponentsInChildren<Face>();
         IsRotating = false;
+        if (gameObject.transform.parent.name != "Chunk 0")
+        {
+            chunkBelow = GameObject.Find("Chunk " + (gameState.chunkCounter - 2));
+        }
     }
 
     private void Update()
     {
         RotateBlock();
 
+        // Detect swipe direction
         if (swipeHandler.currentSwipeDirection.Equals("left"))
 		{
             this.HandleRotation(true);
@@ -38,7 +45,7 @@ public class Block : MonoBehaviour
             swipeHandler.currentSwipeDirection = "none";
         }
 
-        // Update value for IsRotating
+        // Set value for IsRotating
         float allowedAngleDifference = Mathf.Abs(transform.eulerAngles.y * floatVariationTolerance);
         float roundedAngle = (float)Math.Round(transform.eulerAngles.y * 10000f) / 10000f;
         float actualDifference = Mathf.Abs(roundedAngle) % 45;
@@ -52,12 +59,16 @@ public class Block : MonoBehaviour
         }
 
         UpdateEnemiesAtBoundaryList();
-        
     }
 
     public void AddToLeavingList(Enemy enemy)
     {
         enemiesLeaving.Add(enemy);
+    }
+
+    public void RemoveFromLeavingList(Enemy enemy)
+    {
+        enemiesLeaving.Remove(enemy);
     }
 
     public void OnMouseDown()
@@ -83,11 +94,31 @@ public class Block : MonoBehaviour
     {
         if (IsRotating)
         {
-            // get list of enemies entering or leaving
+            // set moving=false for each enemy leaving this block
+            foreach (Enemy enemy in enemiesLeaving)
+            {
+                enemy.IsMoving = false;
+            }
+
+            if (chunkBelow)
+            {
+                // set moving=false for each enemy leaving the block in the chunk below
+                foreach (Enemy enemy in chunkBelow.GetComponentInChildren<Block>().enemiesLeaving)
+                {
+                    enemy.IsMoving = false;
+                }
+            }  
+
         }
-        else
+        else if (!IsRotating)
         {
+            // need additional logic here
+
             // clear list of enemies entering or leaving
+            foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
+            {
+                enemy.IsMoving = true;
+            }
         }
     } 
 
