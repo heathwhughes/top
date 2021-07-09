@@ -47,15 +47,6 @@ public class Enemy : MonoBehaviour
         {
             block = GetComponentInParent<Block>();
         }
-        /*
-        if (block.IsRotating)
-        {
-            IsMoving = false;
-        }
-        else
-        {
-            IsMoving = true;
-        } */
 
         if (IsMoving)
         {

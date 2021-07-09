@@ -11,7 +11,6 @@ public class Block : MonoBehaviour
     float rotationAngle;
     private SwipeHandler swipeHandler;
     private Face[] faces;
-    private readonly float floatVariationTolerance = .000001f;
     [SerializeField] public List<Enemy> enemiesLeaving = new List<Enemy>();
     [SerializeField] private GameObject chunkBelow;
     GameState gameState;
@@ -46,10 +45,10 @@ public class Block : MonoBehaviour
         }
 
         // Set value for IsRotating
-        float allowedAngleDifference = Mathf.Abs(transform.eulerAngles.y * floatVariationTolerance);
-        float roundedAngle = (float)Math.Round(transform.eulerAngles.y * 10000f) / 10000f;
-        float actualDifference = Mathf.Abs(roundedAngle) % 45;
-        if (actualDifference <= allowedAngleDifference)
+        float roundedAngle = (float)Math.Round(transform.eulerAngles.y * 1000f) / 1000f;
+        float angleDifference = Mathf.Abs(roundedAngle) % 45;
+        print("angle: " + transform.eulerAngles.y + "; " + "rounded angle: " + roundedAngle + "; " + "actual difference: " + angleDifference);
+        if (angleDifference == 0)
         {
             IsRotating = false;
         }
@@ -58,7 +57,7 @@ public class Block : MonoBehaviour
             IsRotating = true;
         }
 
-        UpdateEnemiesAtBoundaryList();
+        UpdateEnemiesAtBoundary();
     }
 
     public void AddToLeavingList(Enemy enemy)
@@ -90,7 +89,7 @@ public class Block : MonoBehaviour
         }
     }
 
-    private void UpdateEnemiesAtBoundaryList()
+    private void UpdateEnemiesAtBoundary()
     {
         if (IsRotating)
         {
@@ -100,7 +99,7 @@ public class Block : MonoBehaviour
                 enemy.IsMoving = false;
             }
 
-            if (chunkBelow)
+            if (chunkBelow != null)
             {
                 // set moving=false for each enemy leaving the block in the chunk below
                 foreach (Enemy enemy in chunkBelow.GetComponentInChildren<Block>().enemiesLeaving)
@@ -112,8 +111,6 @@ public class Block : MonoBehaviour
         }
         else if (!IsRotating)
         {
-            // need additional logic here
-
             // clear list of enemies entering or leaving
             foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
             {
@@ -135,7 +132,7 @@ public class Block : MonoBehaviour
         
         foreach (Face face in faces)
         {
-            // Determine set the values to keep track of where in the view each face is after rotation
+            // Set the values to keep track of where in the view each face is after rotation
             if (face.IsInView)
             {
                 if (face.IsVisibleLeft && !face.IsVisibleRight && isLeftRotation)
