@@ -60,7 +60,7 @@ public class Face : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (transform.parent.parent.name != "Base Chunk")
+        if (transform.parent.parent.name != "Chunk 0")
         {
             // Assuming that it's the Head's collider, set it's parent's parent to the Face
             other.transform.parent.parent = transform;

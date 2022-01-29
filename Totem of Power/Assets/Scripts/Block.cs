@@ -32,7 +32,7 @@ public class Block : MonoBehaviour
     {
         RotateBlock();
 
-        // Detect swipe direction
+        // Detect swipe direction, apply it to rotation and then reset it
         if (swipeHandler.currentSwipeDirection.Equals("left"))
 		{
             this.HandleRotation(true);
@@ -47,7 +47,7 @@ public class Block : MonoBehaviour
         // Set value for IsRotating
         float roundedAngle = (float)Math.Round(transform.eulerAngles.y * 1000f) / 1000f;
         float angleDifference = Mathf.Abs(roundedAngle) % 45;
-        print("angle: " + transform.eulerAngles.y + "; " + "rounded angle: " + roundedAngle + "; " + "actual difference: " + angleDifference);
+        // debug rotation: print("angle: " + transform.eulerAngles.y + "; " + "rounded angle: " + roundedAngle + "; " + "actual difference: " + angleDifference);
         if (angleDifference == 0)
         {
             IsRotating = false;

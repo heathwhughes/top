@@ -70,7 +70,7 @@ public class SwipeHandler : MonoBehaviour
         }
     }
 
-    // This method returns whether it's a left or right swipe so other scripts that call it can act upon that info
+    // This method sets the swipe direction so other scripts that call it can act upon that info
     public void SwipeControl()
     {
         Vector2 distance = endSwipePosition - startSwipePosition;
