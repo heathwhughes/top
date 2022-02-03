@@ -47,8 +47,14 @@ TagManager:
   - name: OutOfViewEnemy
     uniqueID: 2752169027
     locked: 0
-  - name: Totem
-    uniqueID: 839328245
+  - name: OutOfView
+    uniqueID: 2285485295
+    locked: 0
+  - name: Dome
+    uniqueID: 1343268523
+    locked: 0
+  - name: InViewTotem
+    uniqueID: 1406467145
     locked: 0
   - name: InViewEnemy
     uniqueID: 311621537

@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771522557152155822, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771522557152155822, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayerID
@@ -428,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771522557635022857, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771522557635022857, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayerID
@@ -436,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771522558200475336, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771522558200475336, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayerID
@@ -444,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771522558237970915, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771522558237970915, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_SortingLayerID
@@ -498,6 +498,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base Chunk Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6326891746433996240, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326891746433996240, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.79
+      objectReference: {fileID: 0}
     - target: {fileID: 6625033704816004183, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -516,6 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3743450251373841889, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
+    - {fileID: 1350505477952277245, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0957777306c854bd8aa552919e36d8d4, type: 3}
 --- !u!4 &6643391469596897149 stripped
 Transform:

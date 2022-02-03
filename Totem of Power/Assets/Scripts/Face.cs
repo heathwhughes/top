@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Face : MonoBehaviour
 {
+    public const string IN_VIEW_LAYER_NAME = "InViewTotem";
+    public const string OUT_OF_VIEW_LAYER_NAME = "OutOfView";
     [SerializeField] public bool IsInView { get; set; }
     [SerializeField] public bool IsVisibleLeft { get; set; }
     [SerializeField] public bool IsVisibleRight { get; set; }
     [SerializeField] public bool IsHiddenLeft { get; set; }
     [SerializeField] public bool IsHiddenRight { get; set; }
     Block block;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         block = GetComponentInParent<Block>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Set initial values for where each face in in the view for sorting layers
         if (gameObject.name == "Face 1" || gameObject.name == "Face 2")
@@ -55,6 +59,27 @@ public class Face : MonoBehaviour
             }
         }
 
+        if (IsInView)
+        {
+            spriteRenderer.sortingLayerName = IN_VIEW_LAYER_NAME;
+        }
+        else
+        {
+            spriteRenderer.sortingLayerName = OUT_OF_VIEW_LAYER_NAME;
+        }
+
+    }
+
+    private void Update()
+    {
+        if (IsInView)
+        {
+            spriteRenderer.sortingLayerName = IN_VIEW_LAYER_NAME;
+        }
+        else
+        {
+            spriteRenderer.sortingLayerName = OUT_OF_VIEW_LAYER_NAME;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
