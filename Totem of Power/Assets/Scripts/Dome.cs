@@ -7,6 +7,16 @@ public class Dome : MonoBehaviour
 {
     [SerializeField] float health = 100f;
 
+    private void Update()
+    {
+        UpdateAnimationState();
+    }
+
+    private void UpdateAnimationState()
+    {
+        // set isHit to false?
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         DamageDome(other.GetComponentInParent<Enemy>().Damage);
@@ -15,12 +25,13 @@ public class Dome : MonoBehaviour
 
     private void DamageDome(float damage)
     {
+        GetComponent<Animator>().SetTrigger("hitTrigger");
         health -= damage;
 
         if (health <= 0)
         {
             DestroyDome();
-        }
+        } 
     }
 
     private void DestroyDome()

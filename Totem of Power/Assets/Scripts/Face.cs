@@ -6,15 +6,21 @@ public class Face : MonoBehaviour
 {
     public const string IN_VIEW_LAYER_NAME = "InViewTotem";
     public const string OUT_OF_VIEW_LAYER_NAME = "OutOfView";
-    [SerializeField] public bool IsInView { get; set; }
-    [SerializeField] public bool IsVisibleLeft { get; set; }
-    [SerializeField] public bool IsVisibleRight { get; set; }
-    [SerializeField] public bool IsHiddenLeft { get; set; }
-    [SerializeField] public bool IsHiddenRight { get; set; }
+    public bool IsInView { get; set; }
+    public bool IsVisibleLeft { get; set; }
+    public bool IsVisibleRight { get; set; }
+    public bool IsHiddenLeft { get; set; }
+    public bool IsHiddenRight { get; set; }
+
+    [SerializeField] private bool active = true;
+    [SerializeField] private float damage = 50f;
+    [SerializeField] private float damageTimerSeconds = 1f;
+
     Block block;
     private SpriteRenderer spriteRenderer;
+    
 
-    private void Start()
+    IEnumerator Start()
     {
         block = GetComponentInParent<Block>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -68,6 +74,12 @@ public class Face : MonoBehaviour
             spriteRenderer.sortingLayerName = OUT_OF_VIEW_LAYER_NAME;
         }
 
+        while (active)
+        {
+            yield return new WaitForSeconds(damageTimerSeconds);
+            DealDamage();
+        }
+
     }
 
     private void Update()
@@ -100,6 +112,11 @@ public class Face : MonoBehaviour
         {
             block.RemoveFromLeavingList(other.GetComponentInParent<Enemy>());
         }
+    }
+
+    private void DealDamage(/*Enemy enemy*/)
+    {
+        print("Damage dealt");
     }
 
 }

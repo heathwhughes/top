@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = .5f;
+    [SerializeField] public float health = 100f;
     [SerializeField] public float Damage { get; set; } = 25f;
     public const string IN_VIEW_LAYER_NAME = "InViewEnemy";
     public const string OUT_OF_VIEW_LAYER_NAME = "OutOfView";
