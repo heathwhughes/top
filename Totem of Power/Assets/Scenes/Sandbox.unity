@@ -707,12 +707,20 @@ PrefabInstance:
       value: Chunk 0
       objectReference: {fileID: 0}
     - target: {fileID: 6643391469014411225, guid: afafe3fe2d31e477fbaf48216d026c9d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6f739e5ff96945cab0015126a3ae854, type: 3}
+    - target: {fileID: 6643391469014411225, guid: afafe3fe2d31e477fbaf48216d026c9d, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7409890894113396927, guid: afafe3fe2d31e477fbaf48216d026c9d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522474412016200247, guid: afafe3fe2d31e477fbaf48216d026c9d, type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9212150568990914606, guid: afafe3fe2d31e477fbaf48216d026c9d, type: 3}
       propertyPath: m_IsActive
@@ -739,3 +747,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTimerSeconds: 1
+--- !u!95 &6643391468660437659
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643391468660437657}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2744c82a245cd4d449f8f4fd074ac91c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

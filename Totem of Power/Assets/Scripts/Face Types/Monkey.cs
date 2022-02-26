@@ -13,7 +13,6 @@ public class Monkey : MonoBehaviour
     IEnumerator Start()
     {
         face = GetComponent<Face>();
-        Debug.Log(face.damage);
 
         while (face.active)
         {

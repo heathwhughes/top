@@ -17,12 +17,14 @@ public class Face : MonoBehaviour
 
     Block block;
     private SpriteRenderer spriteRenderer;
+    Animator animator;
     
 
     private void Start()
     {
         block = GetComponentInParent<Block>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         // Set initial values for where each face in in the view for sorting layers
         if (gameObject.name == "Face 1" || gameObject.name == "Face 2")
@@ -109,7 +111,15 @@ public class Face : MonoBehaviour
 
     public void DealDamage(Enemy enemy)
     {
+        // trigger attack animation
+        animator.SetTrigger("attackTrigger");
+        enemy.GetComponent<Animator>().SetTrigger("hitTrigger");
+        Debug.Log("Attack!");
         enemy.health -= damage;
+        if (enemy.health <= 0)
+        {
+            Destroy(enemy.gameObject);
+        }
     }
 
 }
