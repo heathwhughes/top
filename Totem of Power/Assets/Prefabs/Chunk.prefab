@@ -52,7 +52,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 5
   enemiesLeaving: []
-  chunkCounter: 0
   chunkBelow: {fileID: 0}
 --- !u!65 &5953774195743085980
 BoxCollider:
@@ -209,9 +208,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 839328245
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c6f739e5ff96945cab0015126a3ae854, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59d38b775eb7c40a7919d5c6c6a21b12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,6 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210fc9fac42ff48ba9776a6501508b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  damage: 50
+  damageTimerSeconds: 1
 --- !u!1 &3771522557635022859
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,9 +320,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 839328245
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a1a876ac875f474fae256f771f145fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59d38b775eb7c40a7919d5c6c6a21b12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -356,6 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210fc9fac42ff48ba9776a6501508b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  damage: 50
+  damageTimerSeconds: 1
 --- !u!1 &3771522558200475338
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,9 +432,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 839328245
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e7b7a69fdc5ac4692a3c230c3d613543, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59d38b775eb7c40a7919d5c6c6a21b12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -465,6 +470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210fc9fac42ff48ba9776a6501508b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  damage: 50
+  damageTimerSeconds: 1
 --- !u!1 &3771522558237970917
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,9 +544,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 839328245
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a081591c947649d987a33df4516dfa8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59d38b775eb7c40a7919d5c6c6a21b12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -574,6 +582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210fc9fac42ff48ba9776a6501508b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  damage: 50
+  damageTimerSeconds: 1
 --- !u!1 &3771522558562131417
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +594,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3771522558562131415}
-  - component: {fileID: 1350505477952277245}
   m_Layer: 0
   m_Name: Chunk
   m_TagString: Untagged
@@ -608,18 +618,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 1.65, z: 0}
---- !u!114 &1350505477952277245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3771522558562131417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34be0b225f2a64a2eacbb0fa54af2382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8060139924402279613
 GameObject:
   m_ObjectHideFlags: 0

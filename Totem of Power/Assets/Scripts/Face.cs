@@ -12,15 +12,14 @@ public class Face : MonoBehaviour
     public bool IsHiddenLeft { get; set; }
     public bool IsHiddenRight { get; set; }
 
-    [SerializeField] private bool active = true;
-    [SerializeField] private float damage = 50f;
-    [SerializeField] private float damageTimerSeconds = 1f;
+    [SerializeField] public bool active = true;
+    [SerializeField] public float damage = 50f;
 
     Block block;
     private SpriteRenderer spriteRenderer;
     
 
-    IEnumerator Start()
+    private void Start()
     {
         block = GetComponentInParent<Block>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -74,12 +73,6 @@ public class Face : MonoBehaviour
             spriteRenderer.sortingLayerName = OUT_OF_VIEW_LAYER_NAME;
         }
 
-        while (active)
-        {
-            yield return new WaitForSeconds(damageTimerSeconds);
-            DealDamage();
-        }
-
     }
 
     private void Update()
@@ -114,9 +107,9 @@ public class Face : MonoBehaviour
         }
     }
 
-    private void DealDamage(/*Enemy enemy*/)
+    public void DealDamage(Enemy enemy)
     {
-        print("Damage dealt");
+        enemy.health -= damage;
     }
 
 }
