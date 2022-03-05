@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Dome : MonoBehaviour
 {
-    [SerializeField] float health = 100f;
+    [SerializeField] public float health = 100f;
 
     private void Update()
     {
