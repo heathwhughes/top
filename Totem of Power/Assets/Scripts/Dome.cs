@@ -19,7 +19,7 @@ public class Dome : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        DamageDome(other.GetComponentInParent<Enemy>().Damage);
+        DamageDome(other.GetComponentInParent<Enemy>().damage);
         Destroy(other.GetComponentInParent<Enemy>().gameObject);
     }
 
